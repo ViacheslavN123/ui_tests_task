@@ -25,4 +25,7 @@ public class Utils {
         }
         return (int)Math.round(currentLeftPercent / 100.0 * trackWidth);
     }
+    public static int getRandomNumber(int min, int max) {
+        return min + (int) (Math.random() * ((max - min) + 1));
+    }
 }

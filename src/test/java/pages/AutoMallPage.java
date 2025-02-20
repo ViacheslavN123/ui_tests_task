@@ -21,22 +21,22 @@ public class AutoMallPage {
     private FilterStore filterStore = new FilterStore();
 
     public void selectRandomCity() {
-        selectFirstElementFromDropdownMenu(citySelect, filterStore::setCity);
+        selectRandomElementFromDropdownMenu(citySelect, filterStore::setCity);
     }
 
     public void selectRandomBrand() {
-        selectFirstElementFromDropdownMenu(brandSelect, filterStore::setBrand);
+        selectRandomElementFromDropdownMenu(brandSelect, filterStore::setBrand);
     }
 
     public void selectRandomModel() {
-        selectFirstElementFromDropdownMenu(modelSelect, filterStore::setModel);
+        selectRandomElementFromDropdownMenu(modelSelect, filterStore::setModel);
     }
 
     public void selectRandomColor() {
-        selectFirstElementFromDropdownMenu(colorSelect, filterStore::setColor);
+        selectRandomElementFromDropdownMenu(colorSelect, filterStore::setColor);
     }
 
-    private void selectFirstElementFromDropdownMenu(SelenideElement dropdown, Consumer<String> consumer) {
+    private void selectRandomElementFromDropdownMenu(SelenideElement dropdown, Consumer<String> consumer) {
         if (!dropdown.exists()) {
             System.out.println("Фильтр недоступен, пропускаем его.");
             return;
@@ -256,10 +256,6 @@ public class AutoMallPage {
             }
         }
     }
-    private int getRandomNumber(int min, int max) {
-        return min + (int) (Math.random() * ((max - min) + 1));
-    }
-
 
     public void clickShowOffers() {
         // Прокручиваем страницу так, чтобы нижняя часть кнопки оказалась видна
