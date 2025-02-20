@@ -102,7 +102,11 @@ public class AutoMallPage {
 
         // Сбрасываем прокрутку контейнера
         //executeJavaScript("arguments[0].scrollTop = 0;", container);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> abc02f358b03b1d39421cce0948571e87cf61a6e
         consumer.accept(selectedText);
         sleep(4000);
     }
@@ -149,7 +153,6 @@ public class AutoMallPage {
             // Проверяем, что найденный label видимый, и кликаем по нему для выбора чекбокса
             chosenLabel.shouldBe(Condition.visible).click();
 
-            // Пауза в 500 миллисекунд для обновления данных в других фильтрах
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
