@@ -100,7 +100,6 @@ public class AutoMallPage {
         // Кликаем по выбранной опции
         randomOption.click();
 
-        // Сбрасываем прокрутку контейнера
         //executeJavaScript("arguments[0].scrollTop = 0;", container);
         consumer.accept(selectedText);
         sleep(3000);
