@@ -102,13 +102,8 @@ public class AutoMallPage {
 
         // Сбрасываем прокрутку контейнера
         //executeJavaScript("arguments[0].scrollTop = 0;", container);
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> abc02f358b03b1d39421cce0948571e87cf61a6e
         consumer.accept(selectedText);
-        sleep(4000);
+        sleep(3000);
     }
 
 

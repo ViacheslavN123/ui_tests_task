@@ -39,16 +39,14 @@ public class SberLeasingCarSelectionTest extends ConfigurationTest {
         autoMallPage.selectRandomModel();
         autoMallPage.selectRandomColor();
         autoMallPage.setRandomPriceRange();
-        //можно добавить "Тип топлива" и "Коробка передач", например autoMallPage.selectFilterOption("Привод", "Тип топлива", "Коробка передач");
+        //можно добавить несколько перечисляемых значений "Тип топлива" и "Коробка передач", например autoMallPage.selectFilterOption("Привод", "Тип топлива", "Коробка передач");
         autoMallPage.selectCheckboxFilters("Привод", "Коробка передач","Тип топлива");
         //можно добавить "Мощность двигателя"
         autoMallPage.selectSliderFilters("Мощность двигателя", "Объём двигателя");
         autoMallPage.clickShowOffers();
 
         aggregatedCarsListPage.clickFirstAggregatedCard();
-        sleep(2000);
         carModelPage.clickCarCard();
-
 
 
         FilterStore actualFilters = carDetailsPage.getAppliedFilters();
