@@ -33,19 +33,23 @@ public class SberLeasingCarSelectionTest extends ConfigurationTest {
         open("https://www.sberleasing.ru");
         CookieUtils.acceptCookiesIfPresent();
 
-        mainPage.clickSelectByParameters();
-        autoMallPage.selectCity();
-        autoMallPage.selectBrand();
-        autoMallPage.selectModel();
-        autoMallPage.selectColor();
-        autoMallPage.setRandomPrice();
-        autoMallPage.selectFilterOption("Привод");
-        autoMallPage.selectNumericFilterOption("Объём двигателя");
-        autoMallPage.clickShowAllOffers();
+        mainPage.selectByParameters();
+        autoMallPage.selectRandomCity();
+        autoMallPage.selectRandomBrand();
+        autoMallPage.selectRandomModel();
+        autoMallPage.selectRandomColor();
+        autoMallPage.setRandomPriceRange();
+        //можно добавить "Тип топлива" и "Коробка передач", например autoMallPage.selectFilterOption("Привод", "Тип топлива", "Коробка передач");
+        autoMallPage.selectCheckboxFilters("Привод", "Коробка передач","Тип топлива");
+        //можно добавить "Мощность двигателя"
+        autoMallPage.selectSliderFilters("Мощность двигателя", "Объём двигателя");
+        autoMallPage.clickShowOffers();
 
         aggregatedCarsListPage.clickFirstAggregatedCard();
         sleep(2000);
         carModelPage.clickCarCard();
+
+
 
         FilterStore actualFilters = carDetailsPage.getAppliedFilters();
         FilterStore expectedFilters = autoMallPage.getFilterStore();

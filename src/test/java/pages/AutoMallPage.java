@@ -20,19 +20,19 @@ public class AutoMallPage {
 
     private FilterStore filterStore = new FilterStore();
 
-    public void selectCity() {
+    public void selectRandomCity() {
         selectFirstElementFromDropdownMenu(citySelect, filterStore::setCity);
     }
 
-    public void selectBrand() {
+    public void selectRandomBrand() {
         selectFirstElementFromDropdownMenu(brandSelect, filterStore::setBrand);
     }
 
-    public void selectModel() {
+    public void selectRandomModel() {
         selectFirstElementFromDropdownMenu(modelSelect, filterStore::setModel);
     }
 
-    public void selectColor() {
+    public void selectRandomColor() {
         selectFirstElementFromDropdownMenu(colorSelect, filterStore::setColor);
     }
 
@@ -101,10 +101,10 @@ public class AutoMallPage {
         randomOption.click();
 
         // Сбрасываем прокрутку контейнера
-//        executeJavaScript("arguments[0].scrollTop = 0;", container);
+        //executeJavaScript("arguments[0].scrollTop = 0;", container);
 
         consumer.accept(selectedText);
-        sleep(6000);
+        sleep(4000);
     }
 
 
@@ -117,7 +117,7 @@ public class AutoMallPage {
     }
 
     // Метод для выбора фильтров по именам. Он принимает переменное число названий фильтров.
-    public void selectFilterOption(String... filterTitles) {
+    public void selectCheckboxFilters(String... filterTitles) {
         // Для каждого переданного названия фильтра выполняем следующие действия:
         for (String filterTitle : filterTitles) {
             // Находим элемент-заголовок фильтра, который содержит нужный текст (например, "Коробка передач")
@@ -159,7 +159,7 @@ public class AutoMallPage {
 
     }
 
-    public void setRandomPrice() {
+    public void setRandomPriceRange() {
         // Находим элемент слайдера (родительский контейнер кнопки слайдера)
         SelenideElement sliderButton = $("div.el-slider__button-wrapper");
 
@@ -198,7 +198,7 @@ public class AutoMallPage {
         sleep(1000);
     }
 
-    public void selectNumericFilterOption(String... filterTitles) {
+    public void selectSliderFilters(String... filterTitles) {
         for (String filterTitle : filterTitles) {
 
             // Находим элемент-заголовок фильтра по тексту (например, "Мощность двигателя" или "Объём двигателя")
@@ -263,7 +263,7 @@ public class AutoMallPage {
     }
 
 
-    public void clickShowAllOffers() {
+    public void clickShowOffers() {
         // Прокручиваем страницу так, чтобы нижняя часть кнопки оказалась видна
         showAllOffersButton.scrollIntoView(false);
         showAllOffersButton.shouldBe(Condition.visible, Condition.enabled).click();

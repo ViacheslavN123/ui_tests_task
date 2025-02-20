@@ -8,7 +8,7 @@ public class AggregatedCarsListPage {
         ElementsCollection cards = $$("div.car-card__item-order-buttons");
 
         if (cards.isEmpty()) {
-            System.out.println("Нет карточек с данными, пропускаем переход.");
+            System.out.println("По заданным параметрам отсутствуют автомобили");
             return;
         }
 
